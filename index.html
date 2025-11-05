@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawrence Gyasi Appiah - Regional Sales Manager & FMCG Brand Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 50%, #1a5490 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 0L100 100M100 0L0 100" stroke="rgba(212,175,55,0.1)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .profile-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #40e0d0, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            color: #40e0d0;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ecf0f1;
+            font-size: 0.95em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #40e0d0;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #16213e;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #40e0d0, #d4af37);
+        }
+
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border-left: 5px solid #40e0d0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(64, 224, 208, 0.2);
+        }
+
+        .job-title {
+            font-size: 1.4em;
+            color: #0f3460;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            color: #40e0d0;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #d4af37;
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding-left: 25px;
+            margin-bottom: 10px;
+            position: relative;
+            color: #2c3e50;
+        }
+
+        .responsibilities li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #40e0d0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #40e0d0 0%, #16a085 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(64, 224, 208, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .achievement-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 3px solid #d4af37;
+        }
+
+        .skill-category h3 {
+            color: #0f3460;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            color: #34495e;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-category li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: #40e0d0;
+        }
+
+        .education-degree {
+            font-size: 1.3em;
+            color: #0f3460;
+            font-weight: bold;
+        }
+
+        .education-school {
+            color: #40e0d0;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #40e0d0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #40e0d0, #16a085);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(64, 224, 208, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+
+        .btn-secondary:hover {
+            background: #d4af37;
+            color: #16213e;
+        }
+
+        footer {
+            background: #16213e;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #40e0d0;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills-grid, .achievements {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="profile-container">
+            <img src="Lawrence.jpg" alt="Lawrence Gyasi Appiah" class="profile-img">
+            <h1>Lawrence Gyasi Appiah</h1>
+            <p class="subtitle">Regional Sales Manager | FMCG Brand Manager</p>
+            <div class="contact-info">
+                <div class="contact-item">📧 gyasiappiahlaw@yahoo.com</div>
+                <div class="contact-item">📱 +233 244 899 711</div>
+                <div class="contact-item">📍 Kumasi, Ghana</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+                Dynamic and results-oriented Sales Management Professional with over 10 years of progressive experience in FMCG regional sales leadership, brand management, and market development across Ghana. Proven expertise in driving revenue growth, building high-performing sales teams, and executing strategic market penetration initiatives within the fast-moving consumer goods sector. Demonstrated success in reviving underperforming markets, expanding distribution networks, and consistently exceeding sales targets across multiple territories including Ashanti, Brong Ahafo, Western, and Northern regions. MBA-qualified with strong competencies in FMCG brand portfolio management, strategic account development, and operational excellence.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Key Achievements</h2>
+            <div class="achievements">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h3>Market Revival Success</h3>
+                    <p>Successfully revived underperforming Brong Ahafo market, enhancing product visibility and significantly increasing market share</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">📈</div>
+                    <h3>Market Development</h3>
+                    <p>Built Kumasi submarket from inception, establishing strong distribution networks and expanding company presence</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎯</div>
+                    <h3>Career Progression</h3>
+                    <p>Advanced from Sales Representative to Regional Manager within 5 years through consistent performance excellence</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🌍</div>
+                    <h3>Territory Expansion</h3>
+                    <p>Successfully managed multi-regional operations across Ashanti, Brong Ahafo, Western, and Northern Ghana</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-title">Regional Manager - Ashanti/Brong Ahafo | FMCG Brand Manager</div>
+                <div class="company">Three Dreamer Manufacturing Company Ltd</div>
+                <div class="date">2024 - Present</div>
+                <ul class="responsibilities">
+                    <li>Direct regional operations for Ashanti and Brong Ahafo regions, overseeing sales strategy execution and market development for FMCG product portfolio</li>
+                    <li>Lead brand management initiatives across multiple FMCG categories, including market positioning, promotional campaigns, and product launches</li>
+                    <li>Develop and implement comprehensive sales strategies aligned with corporate objectives to maximize market penetration and revenue growth</li>
+                    <li>Manage cross-functional collaboration with marketing, logistics, and supply chain teams to ensure seamless operations</li>
+                    <li>Conduct competitive analysis and market intelligence within the FMCG sector to identify growth opportunities and emerging trends</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Regional Sales Manager</div>
+                <div class="company">Three Dreamer Manufacturing Company Ltd</div>
+                <div class="date">2023 - 2024</div>
+                <ul class="responsibilities">
+                    <li>Managed multi-regional sales operations across Ashanti, Brong Ahafo, Western, and Northern Ghana</li>
+                    <li>Coached and developed regional sales representatives, implementing performance management systems and training programs</li>
+                    <li>Executed strategic account management programs for major distributors, wholesalers, and retail chains</li>
+                    <li>Coordinated with marketing teams to execute regional promotional campaigns and product activations</li>
+                    <li>Strengthened distributor relationships and expanded distribution coverage across assigned territories</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Brong Ahafo Regional Sales Representative</div>
+                <div class="company">Three Dreamer Manufacturing Company Ltd</div>
+                <div class="date">2020 - 2023</div>
+                <ul class="responsibilities">
+                    <li>Successfully revived the Brong Ahafo market, enhancing product visibility and significantly increasing market share</li>
+                    <li>Prospected and acquired new customers while maintaining strong relationships with existing clients</li>
+                    <li>Conducted product research and provided valuable market feedback to inform product development strategies</li>
+                    <li>Organized and executed promotional activities and market activation campaigns</li>
+                    <li>Trained distributor sales teams on product knowledge, selling techniques, and brand standards</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Kumasi Submarket Representative</div>
+                <div class="company">Dreamsen</div>
+                <div class="date">2015 - 2020</div>
+                <ul class="responsibilities">
+                    <li>Successfully built and expanded the Kumasi submarket from ground up, significantly increasing company market share</li>
+                    <li>Prospected for new business opportunities and converted prospects into loyal customers</li>
+                    <li>Managed comprehensive customer portfolio and ensured high customer satisfaction and retention rates</li>
+                    <li>Executed promotional activities and market activations to drive brand awareness and sales</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Sales Leadership</h3>
+                    <ul>
+                        <li>Regional Sales Management</li>
+                        <li>Multi-Territory Operations</li>
+                        <li>Sales Team Development</li>
+                        <li>Strategic Account Management</li>
+                        <li>Performance Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Brand & Marketing</h3>
+                    <ul>
+                        <li>FMCG Brand Portfolio Management</li>
+                        <li>Market Penetration Strategies</li>
+                        <li>Competitive Intelligence</li>
+                        <li>Consumer Insights</li>
+                        <li>Product Launch Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Distribution & Operations</h3>
+                    <ul>
+                        <li>Distribution Channel Development</li>
+                        <li>Route-to-Market Optimization</li>
+                        <li>Trade Marketing</li>
+                        <li>Retail Partnership Management</li>
+                        <li>Supply Chain Coordination</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Business Development</h3>
+                    <ul>
+                        <li>Customer Acquisition</li>
+                        <li>Relationship Management</li>
+                        <li>Negotiation & Deal Closing</li>
+                        <li>Market Development</li>
+                        <li>Revenue Growth Strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-item">
+                <div class="education-degree">Master of Business Administration (MBA) - Marketing</div>
+                <div class="education-school">Kwame Nkrumah University of Science and Technology (KNUST)</div>
+                <div class="date">2022 - 2024</div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Bachelor of Science (BSc) - Marketing</div>
+                <div class="education-school">University of Cape Coast (UCC)</div>
+                <div class="date">2016 - 2018</div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-degree">Higher National Diploma (HND) - Marketing</div>
+                <div class="education-school">Accra Technical University</div>
+                <div class="date">2009 - 2012</div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Let's Connect</h2>
+            <p>Looking for a results-driven FMCG sales leader to drive growth in your organization?</p>
+            <div class="cta-buttons">
+                <a href="mailto:gyasiappiahlaw@yahoo.com" class="btn btn-primary">Email Me</a>
+                <a href="tel:+233244899711" class="btn btn-secondary">Call Now</a>
+            </div>
+            <p class="quote">"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time." - Thomas Edison</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Lawrence Gyasi Appiah. All rights reserved.</p>
+        <p>Regional Sales Manager | FMCG Brand Manager | Ghana</p>
+    </footer>
+</body>
+</html>
