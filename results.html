@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results & Case Studies | Lawrence Gyasi Appiah | FMCG Marketing Ghana</title>
+    <meta name="description" content="Real results from Lawrence Gyasi Appiah's 12+ years in FMCG marketing. Market revival stories, distribution growth, brand transformations, and career milestones across Ghana.">
+    <meta name="keywords" content="FMCG results Ghana, market revival case study, FMCG success stories Ghana, Lawrence Gyasi Appiah results, distribution growth Ghana FMCG">
+    <link rel="canonical" href="https://lawrencegyasiappiah.com/results">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0d0d0d;
+            --cream: #f5f0e8;
+            --gold: #e8a020;
+            --electric: #ff4d1c;
+            --teal: #00b894;
+            --deep: #1a1035;
+            --mid: #2d2060;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 14px 60px; display: flex; justify-content: space-between; align-items: center; background: rgba(13,13,13,0.97); backdrop-filter: blur(10px); }
+        .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 2px; text-decoration: none; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; position: relative; transition: color 0.3s; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { color: var(--gold); }
+        .nav-cta { background: var(--electric); color: #fff !important; padding: 10px 24px; border-radius: 3px; font-weight: 600 !important; }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+        .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .nav-hamburger span { width: 26px; height: 2px; background: #fff; }
+
+        /* PAGE HERO */
+        .page-hero {
+            background: var(--gold);
+            padding: 160px 60px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: 'RESULTS';
+            position: absolute;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18vw;
+            color: rgba(13,13,13,0.06);
+            letter-spacing: 8px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { font-size: 0.82rem; color: rgba(13,13,13,0.4); margin-bottom: 20px; }
+        .breadcrumb a { color: var(--deep); text-decoration: none; font-weight: 600; }
+        .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6rem); letter-spacing: 3px; color: var(--deep); line-height: 1; margin-bottom: 24px; }
+        .page-hero p { font-size: 1.15rem; color: rgba(13,13,13,0.7); max-width: 600px; line-height: 1.75; }
+
+        /* STATS BAND */
+        .stats-band { background: var(--deep); padding: 60px; }
+        .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .stats-item { text-align: center; }
+        .stats-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--gold); letter-spacing: 2px; line-height: 1; }
+        .stats-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; }
+        .stats-sep { width: 1px; background: rgba(255,255,255,0.1); }
+
+        /* CASE STUDIES */
+        .cases-section { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
+        .section-tag { font-size: 0.78rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; }
+        .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.15; margin-bottom: 60px; }
+
+        .case-study {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            background: #fff;
+            border: 1px solid rgba(13,13,13,0.06);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        .case-study:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(13,13,13,0.1); }
+        .case-study:nth-child(even) { grid-template-columns: 1.4fr 1fr; }
+        .case-study:nth-child(even) .case-info { order: -1; }
+        .case-visual {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 50px;
+        }
+        .case-study:nth-child(1) .case-visual { background: linear-gradient(135deg, var(--electric), #c73500); }
+        .case-study:nth-child(2) .case-visual { background: linear-gradient(135deg, var(--deep), var(--mid)); }
+        .case-study:nth-child(3) .case-visual { background: linear-gradient(135deg, #00654e, var(--teal)); }
+        .case-num { font-family: 'Bebas Neue', sans-serif; font-size: 6rem; color: rgba(255,255,255,0.15); line-height: 1; margin-bottom: 10px; }
+        .case-tag { font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 16px; font-weight: 600; }
+        .case-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; line-height: 1.2; margin-bottom: 20px; }
+        .case-metrics { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+        .case-metric { display: flex; align-items: center; gap: 14px; }
+        .metric-val { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: rgba(255,255,255,0.95); letter-spacing: 1px; min-width: 80px; }
+        .metric-label { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
+        .case-info { padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; }
+        .case-context { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; }
+        .case-challenge { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--ink); margin-bottom: 16px; }
+        .case-body { font-size: 0.92rem; color: #555; line-height: 1.8; margin-bottom: 28px; }
+        .case-actions { list-style: none; }
+        .case-actions li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.88rem; color: #444; margin-bottom: 10px; }
+        .case-actions li::before { content: '▸'; color: var(--electric); font-size: 1rem; flex-shrink: 0; }
+
+        /* CAREER TIMELINE */
+        .timeline-section { background: var(--ink); padding: 100px 60px; }
+        .timeline-inner { max-width: 1200px; margin: 0 auto; }
+        .timeline-section .section-tag { color: var(--gold); }
+        .timeline-section .section-headline { color: #fff; margin-bottom: 0; }
+        .timeline { margin-top: 70px; position: relative; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold), var(--electric), var(--teal));
+            transform: translateX(-50%);
+        }
+        .timeline-item { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; margin-bottom: 60px; align-items: start; }
+        .timeline-content-left { text-align: right; padding-right: 40px; }
+        .timeline-content-right { padding-left: 40px; }
+        .timeline-item:nth-child(even) .timeline-content-left { opacity: 0; }
+        .timeline-item:nth-child(odd) .timeline-content-right { opacity: 0; }
+        .timeline-dot { width: 24px; height: 24px; border-radius: 50%; background: var(--gold); border: 4px solid var(--ink); margin: 0 auto; position: relative; z-index: 1; margin-top: 8px; flex-shrink: 0; }
+        .timeline-item:nth-child(2) .timeline-dot { background: var(--electric); }
+        .timeline-item:nth-child(3) .timeline-dot { background: var(--teal); }
+        .timeline-item:nth-child(4) .timeline-dot { background: var(--gold); }
+        .tl-year { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 3px; color: var(--gold); margin-bottom: 8px; }
+        .tl-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
+        .tl-company { font-size: 0.85rem; color: var(--teal); font-weight: 600; margin-bottom: 12px; }
+        .tl-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+        /* SKILLS MATRIX */
+        .skills-section { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 50px; }
+        .skill-bar-item { background: #fff; border-radius: 14px; padding: 28px 32px; }
+        .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .skill-name { font-weight: 600; font-size: 0.92rem; }
+        .skill-pct { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--electric); letter-spacing: 1px; }
+        .skill-track { background: rgba(13,13,13,0.08); border-radius: 10px; height: 8px; overflow: hidden; }
+        .skill-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--electric), var(--gold)); transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        /* TESTIMONIAL */
+        .testimonials-section { background: var(--cream); padding: 0 60px 100px; max-width: 1320px; margin: 0 auto; }
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 50px; }
+        .testi-card { background: #fff; border-radius: 16px; padding: 36px 30px; position: relative; transition: all 0.3s; }
+        .testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(13,13,13,0.08); }
+        .testi-quote-mark { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--gold); opacity: 0.25; line-height: 1; margin-bottom: -20px; display: block; }
+        .testi-text { font-size: 0.92rem; color: #555; line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+        .testi-author strong { font-size: 0.88rem; display: block; margin-bottom: 3px; }
+        .testi-author span { font-size: 0.8rem; color: var(--electric); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+        /* CTA */
+        .results-cta { background: var(--deep); padding: 100px 60px; }
+        .results-cta-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .results-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: 3px; color: #fff; margin-bottom: 24px; }
+        .results-cta h2 span { color: var(--gold); }
+        .results-cta p { font-size: 1.05rem; color: rgba(255,255,255,0.6); max-width: 500px; margin: 0 auto 40px; line-height: 1.75; }
+        .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .btn-primary { background: var(--electric); color: #fff; padding: 18px 40px; border-radius: 4px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .btn-primary:hover { background: var(--gold); color: var(--ink); }
+        .btn-ghost { border: 2px solid rgba(255,255,255,0.2); color: #fff; padding: 16px 40px; border-radius: 4px; font-weight: 500; font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* FOOTER */
+        footer { background: var(--ink); color: rgba(255,255,255,0.6); padding: 60px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; }
+        .footer-brand .nav-logo { font-size: 2rem; display: block; margin-bottom: 12px; }
+        .footer-brand p { font-size: 0.88rem; line-height: 1.7; }
+        .footer-links h4, .footer-contact h4 { font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-contact p { font-size: 0.9rem; margin-bottom: 10px; line-height: 1.6; }
+        .footer-contact a { color: var(--teal); text-decoration: none; }
+        .footer-bottom { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+        @media (max-width: 900px) {
+            nav { padding: 14px 24px; }
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .page-hero { padding: 120px 24px 70px; }
+            .stats-band { padding: 40px 24px; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .stats-sep { display: none; }
+            .cases-section { padding: 60px 24px; }
+            .case-study { grid-template-columns: 1fr !important; }
+            .case-study:nth-child(even) .case-info { order: 0; }
+            .timeline-section { padding: 60px 24px; }
+            .timeline::before { left: 20px; }
+            .timeline-item { grid-template-columns: 40px 1fr; }
+            .timeline-content-left { display: none; }
+            .timeline-item:nth-child(odd) .timeline-content-right { opacity: 1; }
+            .timeline-dot { margin: 0; }
+            .skills-section { padding: 60px 24px; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .testimonials-section { padding: 0 24px 60px; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .results-cta { padding: 60px 24px; }
+            footer { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+            .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html" class="nav-logo">LGA</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="results.html" class="active">Results &amp; Case Studies</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+    <div class="nav-hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+    <div class="page-hero-inner">
+        <div class="breadcrumb"><a href="index.html">Home</a> / Results &amp; Case Studies</div>
+        <h1>PROVEN<br>RESULTS</h1>
+        <p>12+ years of real wins, market transformations, and brand breakthroughs across Ghana's most competitive FMCG territories.</p>
+    </div>
+</div>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+    <div class="stats-inner">
+        <div class="stats-item">
+            <div class="stats-num">12+</div>
+            <div class="stats-label">Years of Experience</div>
+        </div>
+        <div class="stats-sep"></div>
+        <div class="stats-item">
+            <div class="stats-num">4</div>
+            <div class="stats-label">Regions Led</div>
+        </div>
+        <div class="stats-sep"></div>
+        <div class="stats-item">
+            <div class="stats-num">2</div>
+            <div class="stats-label">Markets Built from Zero</div>
+        </div>
+        <div class="stats-sep"></div>
+        <div class="stats-item">
+            <div class="stats-num">5yr</div>
+            <div class="stats-label">Rep → Manager Progression</div>
+        </div>
+    </div>
+</div>
+
+<!-- CASE STUDIES -->
+<div style="background: var(--cream);">
+    <div class="cases-section">
+        <div class="section-tag">Case Studies</div>
+        <h2 class="section-headline">Market victories<br><em>that tell the story</em></h2>
+
+        <!-- Case 1 -->
+        <div class="case-study">
+            <div class="case-visual">
+                <div class="case-num">01</div>
+                <div class="case-tag">Market Revival</div>
+                <div class="case-title">Brong Ahafo<br>Market Turnaround</div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <div class="metric-val">↑ MKT</div>
+                        <div class="metric-label">Significant market share increase in Brong Ahafo region</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="metric-val">100%</div>
+                        <div class="metric-label">Product visibility transformation across key outlets</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="metric-val">3yr</div>
+                        <div class="metric-label">Sustained growth period managed</div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-info">
+                <div class="case-context">2020 – 2023 · Three Dreamer Manufacturing Co.</div>
+                <div class="case-challenge">"An underperforming regional market that had lost momentum and consumer shelf presence."</div>
+                <p class="case-body">The Brong Ahafo territory had been struggling with low product visibility, weak distributor relationships, and declining sales. Lawrence was deployed to stabilize, rebuild, and grow the market. Within the engagement period, the region went from being a problem territory to a flagship performer.</p>
+                <ul class="case-actions">
+                    <li>Conducted comprehensive market audit to identify root causes of decline</li>
+                    <li>Rebuilt key distributor relationships with structured performance agreements</li>
+                    <li>Launched targeted product visibility campaigns across priority outlets</li>
+                    <li>Activated field-level promotions and consumer sampling to rebuild brand trust</li>
+                    <li>Recruited and trained new market-level sales ambassadors</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case-study">
+            <div class="case-visual">
+                <div class="case-num">02</div>
+                <div class="case-tag">Market Creation</div>
+                <div class="case-title">Kumasi Submarket<br>Built from Scratch</div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <div class="metric-val">0→</div>
+                        <div class="metric-label">Built the entire Kumasi market infrastructure from inception</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="metric-val">5yr</div>
+                        <div class="metric-label">Sustained market management &amp; expansion period</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="metric-val">↑ ↑ ↑</div>
+                        <div class="metric-label">Significant market share growth for company in the territory</div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-info">
+                <div class="case-context">2015 – 2020 · Dreamsen</div>
+                <div class="case-challenge">"Establish a brand presence and functional sales operation in Kumasi — from the ground up."</div>
+                <p class="case-body">With no existing market infrastructure in Kumasi, Lawrence was tasked with building the entire sales ecosystem — identifying and onboarding distributors, mapping trade routes, acquiring customers, and driving brand awareness in a market where the company had no footprint.</p>
+                <ul class="case-actions">
+                    <li>Mapped trade routes and identified priority retail and wholesale accounts</li>
+                    <li>Identified and onboarded local distributors aligned with company objectives</li>
+                    <li>Developed customer acquisition pipeline, converting prospects to loyal accounts</li>
+                    <li>Executed market activation campaigns to drive brand awareness in the territory</li>
+                    <li>Maintained high customer retention through relationship management</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="case-study">
+            <div class="case-visual">
+                <div class="case-num">03</div>
+                <div class="case-tag">Multi-Region Leadership</div>
+                <div class="case-title">4-Region Sales<br>Operations Leadership</div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <div class="metric-val">×4</div>
+                        <div class="metric-label">Regions simultaneously managed: Ashanti, BA, Western, Northern</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="metric-val">FMCG</div>
+                        <div class="metric-label">Full brand management portfolio role alongside sales leadership</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="metric-val">5yr</div>
+                        <div class="metric-label">Rep to Regional Manager — fastest progression in role</div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-info">
+                <div class="case-context">2023 – 2024 · Three Dreamer Manufacturing Co.</div>
+                <div class="case-challenge">"Scale operations across four diverse Ghanaian regions while maintaining performance and team cohesion."</div>
+                <p class="case-body">Promoted to Regional Sales Manager with responsibility across four of Ghana's major regions simultaneously, Lawrence led a diverse team of sales representatives, managed key distributor accounts, and coordinated with marketing on brand activations — all while ensuring each territory received the strategic attention it needed to perform.</p>
+                <ul class="case-actions">
+                    <li>Designed region-specific strategies accounting for local market dynamics</li>
+                    <li>Implemented performance management systems for regional sales teams</li>
+                    <li>Coordinated multi-region promotional campaigns and brand activations</li>
+                    <li>Strengthened distributor partnerships and expanded coverage in each territory</li>
+                    <li>Delivered regular strategic reporting and market intelligence to leadership</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- CAREER TIMELINE -->
+<div class="timeline-section">
+    <div class="timeline-inner">
+        <div class="section-tag">Career Journey</div>
+        <h2 class="section-headline">From sales rep<br><em>to brand strategist</em></h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content-left">
+                    <div class="tl-year">2009 – 2012</div>
+                    <div class="tl-title">Foundation</div>
+                    <div class="tl-desc">HND Marketing studies lay the academic foundation at Sunyani Technical University.</div>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content-right"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content-left"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content-right">
+                    <div class="tl-year">2015 – 2020</div>
+                    <div class="tl-title">Kumasi Submarket Representative</div>
+                    <div class="tl-company">Dreamsen</div>
+                    <div class="tl-desc">Built the Kumasi territory from scratch — first major market creation achievement.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content-left">
+                    <div class="tl-year">2016 – 2018</div>
+                    <div class="tl-title">BSc Marketing</div>
+                    <div class="tl-company">University of Cape Coast</div>
+                    <div class="tl-desc">Earned degree while continuing to grow professionally — demonstrating exceptional drive.</div>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content-right"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content-left"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content-right">
+                    <div class="tl-year">2020 – 2023</div>
+                    <div class="tl-title">Brong Ahafo Regional Sales Rep</div>
+                    <div class="tl-company">Three Dreamer Manufacturing Co. Ltd</div>
+                    <div class="tl-desc">Revived the Brong Ahafo market — transforming it from an underperformer to a growth territory.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content-left">
+                    <div class="tl-year">2022 – 2024</div>
+                    <div class="tl-title">MBA Marketing</div>
+                    <div class="tl-company">KNUST</div>
+                    <div class="tl-desc">Master's degree adds academic rigour to over a decade of field experience.</div>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content-right"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content-left"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content-right">
+                    <div class="tl-year">2023 – 2024</div>
+                    <div class="tl-title">Regional Sales Manager (4 Regions)</div>
+                    <div class="tl-company">Three Dreamer Manufacturing Co. Ltd</div>
+                    <div class="tl-desc">Major promotion — leading sales operations across Ghana's largest regions simultaneously.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content-left">
+                    <div class="tl-year">2024 – Present</div>
+                    <div class="tl-title">Regional Manager &amp; FMCG Brand Manager</div>
+                    <div class="tl-company">Three Dreamer Manufacturing Co. Ltd</div>
+                    <div class="tl-desc">Elevated dual role — leading both regional operations and brand management strategy for FMCG portfolio.</div>
+                </div>
+                <div class="timeline-dot" style="background: var(--teal);"></div>
+                <div class="timeline-content-right"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SKILLS MATRIX -->
+<div style="background: var(--cream);">
+    <div class="skills-section">
+        <div class="section-tag">Competency Matrix</div>
+        <h2 class="section-headline" style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2;">Where the expertise runs<br><em>deepest</em></h2>
+        <div class="skills-grid">
+            <div class="skill-bar-item">
+                <div class="skill-header"><span class="skill-name">FMCG Brand Management</span><span class="skill-pct">98%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="98%" style="width: 0;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-header"><span class="skill-name">Regional Sales Leadership</span><span class="skill-pct">97%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="97%" style="width: 0; background: linear-gradient(90deg, var(--deep), var(--mid));"></div></div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-header"><span class="skill-name">Distribution Channel Development</span><span class="skill-pct">95%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="95%" style="width: 0; background: linear-gradient(90deg, var(--teal), #00d4a8);"></div></div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-header"><span class="skill-name">Trade Marketing &amp; Activation</span><span class="skill-pct">93%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="93%" style="width: 0;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-header"><span class="skill-name">Market Penetration Strategy</span><span class="skill-pct">96%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="96%" style="width: 0; background: linear-gradient(90deg, #d400a0, var(--electric));"></div></div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-header"><span class="skill-name">Sales Team Development</span><span class="skill-pct">92%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="92%" style="width: 0; background: linear-gradient(90deg, var(--gold), #f5c842);"></div></div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-header"><span class="skill-name">Competitive Intelligence</span><span class="skill-pct">90%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="90%" style="width: 0; background: linear-gradient(90deg, var(--deep), var(--teal));"></div></div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-header"><span class="skill-name">Consumer Insights &amp; Research</span><span class="skill-pct">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="88%" style="width: 0;"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div style="background: var(--cream);">
+    <div class="testimonials-section">
+        <div class="section-tag">Testimonials</div>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2; margin-bottom: 0;">What colleagues<br><em>&amp; industry peers say</em></h2>
+        <div class="testi-grid">
+            <div class="testi-card">
+                <span class="testi-quote-mark">"</span>
+                <p class="testi-text">Lawrence has an rare combination of strategic thinking and practical execution. He doesn't just plan — he delivers. The Brong Ahafo turnaround is a testament to his deep FMCG knowledge and relentless drive.</p>
+                <div class="testi-author">
+                    <strong>Industry Colleague</strong>
+                    <span>FMCG Sector, Ghana</span>
+                </div>
+            </div>
+            <div class="testi-card" style="background: var(--deep); color: #fff;">
+                <span class="testi-quote-mark" style="color: var(--gold);">"</span>
+                <p class="testi-text" style="color: rgba(255,255,255,0.7);">He understands the Ghanaian market at a level that most consultants simply don't have. His insight into consumer behaviour and distribution dynamics is invaluable for any FMCG brand.</p>
+                <div class="testi-author">
+                    <strong style="color: #fff;">Senior Marketing Professional</strong>
+                    <span>Consumer Goods Industry</span>
+                </div>
+            </div>
+            <div class="testi-card">
+                <span class="testi-quote-mark">"</span>
+                <p class="testi-text">What sets Lawrence apart is his ability to build genuine relationships — with distributors, retailers, and teams. Those relationships are the foundation of everything he achieves.</p>
+                <div class="testi-author">
+                    <strong>Distribution Partner</strong>
+                    <span>Ashanti Region, Ghana</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="results-cta">
+    <div class="results-cta-inner">
+        <h2>YOUR BRAND'S<br><span>SUCCESS STORY</span><br>STARTS HERE</h2>
+        <p>Let's write the next chapter — together. Book your free discovery call today.</p>
+        <div class="cta-btns">
+            <a href="mailto:lawrencegyasi2012@gmail.com" class="btn-primary">📧 Email Lawrence</a>
+            <a href="tel:+233244899711" class="btn-ghost">📱 +233 244 899 711</a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <a href="index.html" class="nav-logo">LGA</a>
+        <p>Lawrence Gyasi Appiah — FMCG Marketing Consultant &amp; Brand Strategist based in Kumasi, Ghana.</p>
+    </div>
+    <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="results.html">Results &amp; Case Studies</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="footer-contact">
+        <h4>Get In Touch</h4>
+        <p>📧 <a href="mailto:lawrencegyasi2012@gmail.com">lawrencegyasi2012@gmail.com</a></p>
+        <p>📱 <a href="tel:+233244899711">+233 244 899 711</a></p>
+        <p>📍 Kumasi, Ashanti Region, Ghana</p>
+    </div>
+</footer>
+<div class="footer-bottom">
+    <p>© 2025 Lawrence Gyasi Appiah. All rights reserved.</p>
+    <p>FMCG Marketing Consultant · Kumasi, Ghana</p>
+</div>
+
+<script>
+    function toggleMenu() {
+        const links = document.querySelector('.nav-links');
+        links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+        links.style.flexDirection = 'column';
+        links.style.position = 'fixed';
+        links.style.top = '70px';
+        links.style.right = '0';
+        links.style.background = 'rgba(13,13,13,0.97)';
+        links.style.padding = '24px 40px';
+        links.style.gap = '20px';
+        links.style.borderLeft = '3px solid var(--gold)';
+    }
+
+    // Animate skill bars on scroll
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const fill = e.target.querySelector('.skill-fill');
+                if (fill) fill.style.width = fill.getAttribute('data-width');
+            }
+        });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-bar-item').forEach(el => skillObserver.observe(el));
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+        });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.case-study, .testi-card, .timeline-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        revealObserver.observe(el);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Consulting Services | Lawrence Gyasi Appiah | FMCG Ghana</title>
+    <meta name="description" content="Professional FMCG marketing consulting services by Lawrence Gyasi Appiah — brand strategy, regional sales leadership, distribution development, trade marketing, and more in Ghana.">
+    <meta name="keywords" content="FMCG consulting services Ghana, brand strategy consultant, regional sales consultant Ghana, distribution channel development, trade marketing Ghana">
+    <link rel="canonical" href="https://lawrencegyasiappiah.com/services">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0d0d0d;
+            --cream: #f5f0e8;
+            --gold: #e8a020;
+            --electric: #ff4d1c;
+            --teal: #00b894;
+            --deep: #1a1035;
+            --mid: #2d2060;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 14px 60px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(13,13,13,0.97); backdrop-filter: blur(10px);
+        }
+        .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 2px; text-decoration: none; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; position: relative; transition: color 0.3s; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { color: var(--gold); }
+        .nav-cta { background: var(--electric); color: #fff !important; padding: 10px 24px; border-radius: 3px; font-weight: 600 !important; }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+        .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .nav-hamburger span { width: 26px; height: 2px; background: #fff; }
+
+        /* PAGE HERO */
+        .page-hero {
+            background: linear-gradient(135deg, var(--deep) 0%, #0d0828 100%);
+            padding: 160px 60px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: 'SERVICES';
+            position: absolute;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18vw;
+            color: rgba(255,255,255,0.02);
+            letter-spacing: 8px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+        .breadcrumb a { color: var(--gold); text-decoration: none; }
+        .page-hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            letter-spacing: 3px;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+        .page-hero h1 .accent { color: var(--gold); }
+        .page-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.65); max-width: 600px; line-height: 1.75; }
+
+        /* SERVICES INTRO */
+        .services-intro {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .intro-tag { font-size: 0.78rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; }
+        .intro-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2; margin-bottom: 24px; }
+        .intro-body { font-size: 1rem; color: #555; line-height: 1.8; }
+        .intro-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .intro-stat-box {
+            background: var(--deep);
+            border-radius: 14px;
+            padding: 30px 24px;
+            text-align: center;
+            color: #fff;
+        }
+        .intro-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--gold); letter-spacing: 2px; }
+        .intro-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+
+        /* SERVICE CARDS */
+        .services-main { max-width: 1200px; margin: 0 auto; padding: 20px 60px 80px; }
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        .service-card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid rgba(13,13,13,0.08);
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(13,13,13,0.12); }
+        .service-card-header {
+            padding: 40px 40px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .service-icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .service-card:nth-child(1) .service-icon-box { background: rgba(255,77,28,0.1); }
+        .service-card:nth-child(2) .service-icon-box { background: rgba(232,160,32,0.1); }
+        .service-card:nth-child(3) .service-icon-box { background: rgba(0,184,148,0.1); }
+        .service-card:nth-child(4) .service-icon-box { background: rgba(45,32,96,0.08); }
+        .service-card:nth-child(5) .service-icon-box { background: rgba(255,77,28,0.1); }
+        .service-card:nth-child(6) .service-icon-box { background: rgba(232,160,32,0.1); }
+        .service-card-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 6px; }
+        .service-card-subtitle { font-size: 0.82rem; color: var(--electric); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        .service-card-body { padding: 0 40px 32px; }
+        .service-card-body p { font-size: 0.93rem; color: #555; line-height: 1.75; margin-bottom: 24px; }
+        .service-deliverables { list-style: none; }
+        .service-deliverables li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .service-deliverables li::before {
+            content: '✓';
+            color: var(--teal);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .service-card-footer {
+            border-top: 1px solid rgba(13,13,13,0.07);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .service-ideal { font-size: 0.8rem; color: #888; }
+        .service-ideal strong { color: var(--ink); }
+        .service-link { font-size: 0.85rem; font-weight: 600; color: var(--electric); text-decoration: none; transition: gap 0.3s; }
+        .service-link:hover { color: var(--gold); }
+
+        /* FEATURED LARGE SERVICE */
+        .service-card.large { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+        .service-card.large .service-card-header { border-right: 1px solid rgba(13,13,13,0.07); flex-direction: column; padding: 50px; background: var(--deep); color: #fff; }
+        .service-card.large .service-card-title { color: #fff; font-size: 1.8rem; }
+        .service-card.large .service-card-subtitle { color: var(--gold); }
+        .service-card.large .service-card-body { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+        .service-card.large .service-card-body p { font-size: 1rem; }
+        .service-card.large .service-card-footer { border-top: none; padding: 0 50px 50px; }
+
+        /* PROCESS */
+        .process-section { background: var(--ink); padding: 100px 60px; }
+        .process-inner { max-width: 1200px; margin: 0 auto; }
+        .process-section .intro-tag { color: var(--gold); }
+        .process-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); color: #fff; margin-bottom: 60px; line-height: 1.2; }
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .process-step { position: relative; }
+        .process-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 24px;
+            font-size: 1.5rem;
+            color: rgba(232,160,32,0.4);
+        }
+        .step-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: rgba(232,160,32,0.2);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .step-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #fff; margin-bottom: 10px; }
+        .step-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+        /* PRICING HINT */
+        .engagement-section { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
+        .engagement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 50px; }
+        .engagement-card {
+            border: 2px solid rgba(13,13,13,0.1);
+            border-radius: 18px;
+            padding: 40px 32px;
+            transition: all 0.4s;
+            position: relative;
+        }
+        .engagement-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .engagement-card.featured {
+            background: var(--deep);
+            border-color: var(--gold);
+            color: #fff;
+        }
+        .engagement-label {
+            font-size: 0.78rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--electric);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .engagement-card.featured .engagement-label { color: var(--gold); }
+        .engagement-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 12px; }
+        .engagement-desc { font-size: 0.88rem; color: #666; line-height: 1.7; margin-bottom: 24px; }
+        .engagement-card.featured .engagement-desc { color: rgba(255,255,255,0.6); }
+        .engagement-features { list-style: none; }
+        .engagement-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: #444;
+            margin-bottom: 8px;
+        }
+        .engagement-card.featured .engagement-features li { color: rgba(255,255,255,0.75); }
+        .engagement-features li::before { content: '◆'; color: var(--gold); font-size: 0.5rem; margin-top: 5px; flex-shrink: 0; }
+        .best-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--electric);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 20px;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+
+        /* CTA */
+        .services-cta {
+            background: linear-gradient(135deg, var(--electric) 0%, #c73500 100%);
+            padding: 100px 60px;
+        }
+        .services-cta-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center; }
+        .cta-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: 2px; color: #fff; line-height: 1; }
+        .cta-sub { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-top: 16px; }
+        .btn-white { background: #fff; color: var(--electric); padding: 18px 40px; border-radius: 4px; font-weight: 700; font-size: 1rem; text-decoration: none; white-space: nowrap; transition: all 0.3s; display: inline-block; }
+        .btn-white:hover { background: var(--ink); color: #fff; }
+
+        /* FOOTER */
+        footer { background: var(--ink); color: rgba(255,255,255,0.6); padding: 60px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; }
+        .footer-brand .nav-logo { font-size: 2rem; display: block; margin-bottom: 12px; }
+        .footer-brand p { font-size: 0.88rem; line-height: 1.7; }
+        .footer-links h4, .footer-contact h4 { font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-contact p { font-size: 0.9rem; margin-bottom: 10px; line-height: 1.6; }
+        .footer-contact a { color: var(--teal); text-decoration: none; }
+        .footer-bottom { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+        @media (max-width: 900px) {
+            nav { padding: 14px 24px; }
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .page-hero { padding: 120px 24px 70px; }
+            .services-intro { grid-template-columns: 1fr; padding: 50px 24px; gap: 40px; }
+            .services-main { padding: 20px 24px 60px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card.large { grid-column: auto; display: block; }
+            .service-card.large .service-card-header { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .process-section { padding: 60px 24px; }
+            .process-steps { grid-template-columns: 1fr; }
+            .process-step::after { display: none; }
+            .engagement-section { padding: 60px 24px; }
+            .engagement-grid { grid-template-columns: 1fr; }
+            .services-cta { padding: 60px 24px; }
+            .services-cta-inner { grid-template-columns: 1fr; gap: 30px; }
+            footer { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+            .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html" class="nav-logo">LGA</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="results.html">Results &amp; Case Studies</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+    <div class="nav-hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+    <div class="page-hero-inner">
+        <div class="breadcrumb"><a href="index.html">Home</a> / Services</div>
+        <h1>MY CONSULTING<br><span class="accent">SERVICES</span></h1>
+        <p>Comprehensive FMCG marketing solutions designed to build, grow, and transform brands in Ghana's competitive consumer landscape.</p>
+    </div>
+</div>
+
+<!-- INTRO -->
+<div style="background: var(--cream);">
+    <div class="services-intro">
+        <div>
+            <div class="intro-tag">Why Work With Me</div>
+            <h2 class="intro-headline">Not just advice —<br><em>real-world results</em></h2>
+            <p class="intro-body">
+                Every service I offer is grounded in over 12 years of actually doing the work — managing regions, reviving markets, leading teams, and building brands from the ground up. You won't get textbook consulting. You'll get a battle-tested partner who knows the Ghanaian FMCG landscape inside out.
+            </p>
+        </div>
+        <div class="intro-stats">
+            <div class="intro-stat-box">
+                <div class="intro-stat-num">12+</div>
+                <div class="intro-stat-label">Years in FMCG</div>
+            </div>
+            <div class="intro-stat-box" style="background: var(--electric);">
+                <div class="intro-stat-num" style="color: #fff;">4</div>
+                <div class="intro-stat-label">Regions Managed</div>
+            </div>
+            <div class="intro-stat-box" style="background: var(--gold);">
+                <div class="intro-stat-num" style="color: var(--deep);">100%</div>
+                <div class="intro-stat-label">FMCG Focus</div>
+            </div>
+            <div class="intro-stat-box" style="background: var(--teal);">
+                <div class="intro-stat-num" style="color: #fff;">MBA</div>
+                <div class="intro-stat-label">Marketing KNUST</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SERVICE CARDS -->
+<div style="background: var(--cream); padding: 0;">
+    <div class="services-main">
+        <div class="services-grid">
+
+            <!-- Featured: Brand Strategy -->
+            <div class="service-card large">
+                <div class="service-card-header">
+                    <div class="service-icon-box" style="background: rgba(232,160,32,0.2); font-size: 2.5rem;">🚀</div>
+                    <div>
+                        <div class="service-card-subtitle">Flagship Service</div>
+                        <div class="service-card-title">FMCG Brand Strategy &amp; Management</div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.75; margin-top: 20px;">
+                        End-to-end brand strategy for FMCG companies looking to dominate their category. From market positioning to full portfolio management — this is where 12 years of deep industry knowledge becomes your competitive advantage.
+                    </p>
+                </div>
+                <div class="service-card-body">
+                    <p>I work with FMCG brands to define, build, and execute market positioning strategies that create lasting consumer preference and drive sustained sales growth.</p>
+                    <ul class="service-deliverables">
+                        <li>Brand positioning &amp; identity development</li>
+                        <li>FMCG portfolio strategy &amp; rationalization</li>
+                        <li>Competitive landscape analysis &amp; differentiation</li>
+                        <li>Product launch strategy &amp; go-to-market planning</li>
+                        <li>Consumer segmentation &amp; targeting frameworks</li>
+                        <li>Brand communication &amp; campaign strategy</li>
+                    </ul>
+                </div>
+                <div class="service-card-footer">
+                    <div class="service-ideal"><strong>Ideal for:</strong> FMCG manufacturers, startups entering the consumer market</div>
+                    <a href="index.html#contact" class="service-link">Get started →</a>
+                </div>
+            </div>
+
+            <!-- Regional Sales -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <div class="service-icon-box">🗺️</div>
+                    <div>
+                        <div class="service-card-subtitle">Sales Consulting</div>
+                        <div class="service-card-title">Regional Sales Strategy</div>
+                    </div>
+                </div>
+                <div class="service-card-body">
+                    <p>Unlock growth in every territory you operate. I design territory-specific sales strategies that account for local consumer behaviour, competitive dynamics, and distribution infrastructure across Ghana.</p>
+                    <ul class="service-deliverables">
+                        <li>Territory analysis &amp; market mapping</li>
+                        <li>Sales target setting &amp; KPI frameworks</li>
+                        <li>Go-to-market strategy per region</li>
+                        <li>Key account planning &amp; management</li>
+                        <li>Sales team structuring &amp; training</li>
+                    </ul>
+                </div>
+                <div class="service-card-footer">
+                    <div class="service-ideal"><strong>Ideal for:</strong> Companies expanding regionally across Ghana</div>
+                    <a href="index.html#contact" class="service-link">Enquire →</a>
+                </div>
+            </div>
+
+            <!-- Distribution -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <div class="service-icon-box">🔗</div>
+                    <div>
+                        <div class="service-card-subtitle">Route-to-Market</div>
+                        <div class="service-card-title">Distribution Channel Development</div>
+                    </div>
+                </div>
+                <div class="service-card-body">
+                    <p>Your product's ability to reach consumers is just as important as its quality. I help build, optimize, and manage the distribution networks that ensure your brand is available everywhere it needs to be.</p>
+                    <ul class="service-deliverables">
+                        <li>Distributor identification &amp; onboarding</li>
+                        <li>Route-to-market design &amp; optimization</li>
+                        <li>Distributor performance management</li>
+                        <li>Retail coverage expansion strategy</li>
+                        <li>Supply chain coordination frameworks</li>
+                    </ul>
+                </div>
+                <div class="service-card-footer">
+                    <div class="service-ideal"><strong>Ideal for:</strong> Brands with distribution gaps or new to the Ghanaian market</div>
+                    <a href="index.html#contact" class="service-link">Enquire →</a>
+                </div>
+            </div>
+
+            <!-- Trade Marketing -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <div class="service-icon-box">🏪</div>
+                    <div>
+                        <div class="service-card-subtitle">In-Market Activation</div>
+                        <div class="service-card-title">Trade Marketing &amp; Activation</div>
+                    </div>
+                </div>
+                <div class="service-card-body">
+                    <p>Win at the point of purchase. I develop trade marketing programs that increase visibility, drive trial, and build retailer advocacy — converting shelf presence into genuine sales velocity.</p>
+                    <ul class="service-deliverables">
+                        <li>Trade promotion design &amp; execution</li>
+                        <li>Shopper marketing strategy</li>
+                        <li>In-store visibility &amp; merchandising standards</li>
+                        <li>Market activation campaigns</li>
+                        <li>Retailer &amp; distributor incentive programs</li>
+                    </ul>
+                </div>
+                <div class="service-card-footer">
+                    <div class="service-ideal"><strong>Ideal for:</strong> Brands competing for shelf space &amp; consumer attention</div>
+                    <a href="index.html#contact" class="service-link">Enquire →</a>
+                </div>
+            </div>
+
+            <!-- Market Intelligence -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <div class="service-icon-box">📊</div>
+                    <div>
+                        <div class="service-card-subtitle">Research &amp; Intelligence</div>
+                        <div class="service-card-title">Market Intelligence &amp; Research</div>
+                    </div>
+                </div>
+                <div class="service-card-body">
+                    <p>Data-driven decisions start with the right intelligence. I provide in-depth market research, competitive analysis, and consumer insight services tailored to the FMCG landscape in Ghana.</p>
+                    <ul class="service-deliverables">
+                        <li>Competitive landscape mapping</li>
+                        <li>Consumer behaviour &amp; preference research</li>
+                        <li>Market sizing &amp; opportunity assessment</li>
+                        <li>Brand health audits</li>
+                        <li>Emerging trends identification</li>
+                    </ul>
+                </div>
+                <div class="service-card-footer">
+                    <div class="service-ideal"><strong>Ideal for:</strong> Brands entering new markets or reviewing strategy</div>
+                    <a href="index.html#contact" class="service-link">Enquire →</a>
+                </div>
+            </div>
+
+            <!-- Sales Team Dev -->
+            <div class="service-card">
+                <div class="service-card-header">
+                    <div class="service-icon-box">🧠</div>
+                    <div>
+                        <div class="service-card-subtitle">People Development</div>
+                        <div class="service-card-title">Sales Team Training &amp; Coaching</div>
+                    </div>
+                </div>
+                <div class="service-card-body">
+                    <p>A great product needs a great team to sell it. I design and deliver tailored training programs that build selling skills, product knowledge, and performance culture in FMCG sales teams.</p>
+                    <ul class="service-deliverables">
+                        <li>Sales skills training &amp; workshops</li>
+                        <li>FMCG product knowledge programmes</li>
+                        <li>Performance management system setup</li>
+                        <li>Sales leadership coaching</li>
+                        <li>Team structuring &amp; role definition</li>
+                    </ul>
+                </div>
+                <div class="service-card-footer">
+                    <div class="service-ideal"><strong>Ideal for:</strong> FMCG companies with growing or underperforming sales teams</div>
+                    <a href="index.html#contact" class="service-link">Enquire →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-section">
+    <div class="process-inner">
+        <div class="intro-tag">How We Work</div>
+        <h2>My engagement process</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <div class="step-title">Discovery Call</div>
+                <p class="step-desc">Free 30-minute consultation to understand your business, challenges, and goals. No commitment required.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <div class="step-title">Market Audit</div>
+                <p class="step-desc">Deep dive into your current position — brand, sales, distribution, competitive landscape, and team performance.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <div class="step-title">Strategy Design</div>
+                <p class="step-desc">Custom roadmap developed from audit findings — actionable, realistic, and tailored to your specific goals and resources.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">04</div>
+                <div class="step-title">Execution &amp; Results</div>
+                <p class="step-desc">Hands-on implementation support, team coaching, and ongoing performance monitoring to ensure results are achieved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ENGAGEMENT MODELS -->
+<div style="background: var(--cream);">
+    <div class="engagement-section">
+        <div class="intro-tag">Engagement Models</div>
+        <h2 class="intro-headline" style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2;">Choose the right<br><em>level of engagement</em></h2>
+        <div class="engagement-grid">
+            <div class="engagement-card">
+                <div class="engagement-label">One-Time</div>
+                <div class="engagement-title">Strategic Advisory</div>
+                <p class="engagement-desc">Ideal for specific challenges or decisions. Get expert input on a defined scope, deliverable, or strategic question.</p>
+                <ul class="engagement-features">
+                    <li>Single project or deliverable</li>
+                    <li>Market entry analysis</li>
+                    <li>Brand audit report</li>
+                    <li>Strategy session &amp; recommendations</li>
+                </ul>
+            </div>
+            <div class="engagement-card featured">
+                <div class="best-badge">Most Popular</div>
+                <div class="engagement-label">Ongoing</div>
+                <div class="engagement-title">Retainer Partnership</div>
+                <p class="engagement-desc">Monthly engagement for companies that need consistent strategic support, guidance, and implementation oversight.</p>
+                <ul class="engagement-features">
+                    <li>Monthly strategy sessions</li>
+                    <li>Ongoing brand management</li>
+                    <li>Regular market intelligence updates</li>
+                    <li>Team coaching &amp; support</li>
+                    <li>Priority access &amp; fast turnaround</li>
+                </ul>
+            </div>
+            <div class="engagement-card">
+                <div class="engagement-label">Project-Based</div>
+                <div class="engagement-title">Embedded Consultant</div>
+                <p class="engagement-desc">Deep-dive engagement for specific initiatives — product launches, market entry, sales force transformation, or regional expansion.</p>
+                <ul class="engagement-features">
+                    <li>Defined project scope &amp; timeline</li>
+                    <li>Hands-on execution support</li>
+                    <li>Product launch management</li>
+                    <li>Market revival programmes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="services-cta">
+    <div class="services-cta-inner">
+        <div>
+            <div class="cta-headline">LET'S BUILD<br>SOMETHING GREAT</div>
+            <p class="cta-sub">Book a free discovery call and let's talk about how I can help your brand win.</p>
+        </div>
+        <div>
+            <a href="index.html#contact" class="btn-white">Schedule a Call</a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <a href="index.html" class="nav-logo">LGA</a>
+        <p>Lawrence Gyasi Appiah — FMCG Marketing Consultant &amp; Brand Strategist based in Kumasi, Ghana.</p>
+    </div>
+    <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="results.html">Results &amp; Case Studies</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="footer-contact">
+        <h4>Get In Touch</h4>
+        <p>📧 <a href="mailto:lawrencegyasi2012@gmail.com">lawrencegyasi2012@gmail.com</a></p>
+        <p>📱 <a href="tel:+233244899711">+233 244 899 711</a></p>
+        <p>📍 Kumasi, Ashanti Region, Ghana</p>
+    </div>
+</footer>
+<div class="footer-bottom">
+    <p>© 2025 Lawrence Gyasi Appiah. All rights reserved.</p>
+    <p>FMCG Marketing Consultant · Kumasi, Ghana</p>
+</div>
+
+<script>
+    function toggleMenu() {
+        const links = document.querySelector('.nav-links');
+        links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+        links.style.flexDirection = 'column';
+        links.style.position = 'fixed';
+        links.style.top = '70px';
+        links.style.right = '0';
+        links.style.background = 'rgba(13,13,13,0.97)';
+        links.style.padding = '24px 40px';
+        links.style.gap = '20px';
+        links.style.borderLeft = '3px solid var(--gold)';
+    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.service-card, .engagement-card, .process-step').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>
