@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Didwa | Everyday Essentials, Delivered</title>
+<meta name="description" content="Didwa — order rice, oil, sardines, Milo, toiletries and everyday household goods online, delivered to your door across Kumasi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#0f7a4f;
+    --green-dark:#0b5c3b;
+    --green-light:#e6f5ee;
+    --gold:#f2a71b;
+    --gold-dark:#c9860c;
+    --ink:#1a1f1c;
+    --gray:#6b7570;
+    --line:#e4e8e4;
+    --bg:#faf9f6;
+    --white:#ffffff;
+    --red:#e15343;
+    --radius:14px;
+    --shadow: 0 8px 24px rgba(15,122,79,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Poppins',sans-serif;}
+  img,svg{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* PROTOTYPE BANNER */
+  .proto-banner{
+    background:var(--green-dark);
+    color:#fff;
+    font-size:13px;
+    text-align:center;
+    padding:9px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    position:relative;
+  }
+  .proto-banner b{color:var(--gold);}
+  .proto-banner button{
+    color:#fff;
+    opacity:.75;
+    font-size:16px;
+    line-height:1;
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+  }
+  .proto-banner button:hover{opacity:1;}
+  .proto-banner.hidden{display:none;}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:500;
+    background:rgba(250,249,246,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;gap:20px;
+    padding:14px 24px;
+  }
+  .brand{
+    font-weight:800;font-size:26px;color:var(--green-dark);
+    display:flex;align-items:baseline;gap:2px;flex-shrink:0;
+  }
+  .brand span{color:var(--gold-dark);}
+  .area-pill{
+    display:flex;align-items:center;gap:6px;
+    background:var(--green-light);
+    color:var(--green-dark);
+    border:1px solid #cfe9dc;
+    padding:8px 14px;border-radius:999px;
+    font-size:13px;font-weight:600;
+    white-space:nowrap;flex-shrink:0;
+  }
+  .area-pill:hover{background:#dcf0e6;}
+  .search-wrap{flex:1;position:relative;max-width:460px;}
+  .search-wrap input{
+    width:100%;padding:11px 16px 11px 40px;
+    border-radius:999px;border:1px solid var(--line);
+    background:var(--white);font-size:14px;outline:none;
+    transition:border .2s;
+  }
+  .search-wrap input:focus{border-color:var(--green);}
+  .search-wrap .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px;opacity:.5;}
+  .header-actions{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0;}
+  .icon-btn{
+    position:relative;
+    width:42px;height:42px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:19px;background:var(--white);border:1px solid var(--line);
+    transition:.2s;
+  }
+  .icon-btn:hover{border-color:var(--green);}
+  .badge{
+    position:absolute;top:-6px;right:-6px;
+    background:var(--red);color:#fff;font-size:11px;font-weight:700;
+    min-width:19px;height:19px;border-radius:999px;
+    display:flex;align-items:center;justify-content:center;padding:0 4px;
+  }
+  .cat-nav{
+    display:flex;gap:8px;overflow-x:auto;padding:10px 24px 14px;
+    border-top:1px solid var(--line);
+    scrollbar-width:none;
+  }
+  .cat-nav::-webkit-scrollbar{display:none;}
+  .cat-chip{
+    flex-shrink:0;display:flex;align-items:center;gap:6px;
+    padding:8px 14px;border-radius:999px;border:1px solid var(--line);
+    background:var(--white);font-size:13px;font-weight:600;color:var(--gray);
+    transition:.2s;
+  }
+  .cat-chip.active,.cat-chip:hover{background:var(--green);color:#fff;border-color:var(--green);}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(120deg,var(--green-dark),var(--green) 70%);
+    color:#fff;padding:56px 0 64px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;
+    background:radial-gradient(circle,rgba(242,167,27,0.35),transparent 70%);
+  }
+  .hero-inner{position:relative;z-index:1;max-width:640px;}
+  .hero h1{font-size:clamp(30px,4vw,46px);line-height:1.15;font-weight:800;margin-bottom:14px;}
+  .hero h1 em{font-style:normal;color:var(--gold);}
+  .hero p{font-size:16px;opacity:.9;line-height:1.6;margin-bottom:26px;max-width:520px;}
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--gold);color:#1a1f1c;font-weight:700;font-size:15px;
+    padding:14px 26px;border-radius:999px;transition:.2s;
+  }
+  .hero-cta:hover{background:#ffb838;transform:translateY(-2px);}
+  .trust-row{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;}
+  .trust-row div{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;opacity:.95;}
+
+  /* MAIN / PRODUCTS */
+  main{padding:44px 0 80px;}
+  .section-title{font-size:22px;font-weight:800;margin:0 0 4px;display:flex;align-items:center;gap:10px;}
+  .section-sub{color:var(--gray);font-size:14px;margin-bottom:18px;}
+  .cat-block{margin-bottom:42px;scroll-margin-top:160px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;}
+  .card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;display:flex;flex-direction:column;gap:10px;
+    transition:.2s; position:relative;
+  }
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:#d5ebe0;}
+  .card-icon{
+    width:100%;height:92px;border-radius:10px;background:var(--green-light);
+    display:flex;align-items:center;justify-content:center;font-size:40px;
+  }
+  .card .brand-tag{font-size:11px;color:var(--gold-dark);font-weight:700;text-transform:uppercase;letter-spacing:.03em;}
+  .card h3{font-size:14.5px;font-weight:700;line-height:1.3;}
+  .card .size{font-size:12.5px;color:var(--gray);}
+  .card .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
+  .price{font-weight:800;font-size:16px;color:var(--green-dark);}
+  .add-btn{
+    background:var(--green);color:#fff;font-weight:700;font-size:13px;
+    padding:9px 14px;border-radius:9px;transition:.2s;
+  }
+  .add-btn:hover{background:var(--green-dark);}
+  .qty-stepper{
+    display:flex;align-items:center;gap:0;border:1px solid var(--green);border-radius:9px;overflow:hidden;
+  }
+  .qty-stepper button{width:30px;height:32px;background:var(--green-light);color:var(--green-dark);font-weight:800;font-size:15px;}
+  .qty-stepper button:hover{background:#d3ecdf;}
+  .qty-stepper span{width:28px;text-align:center;font-weight:700;font-size:14px;}
+  .no-results{padding:60px 20px;text-align:center;color:var(--gray);display:none;}
+  .no-results.show{display:block;}
+
+  /* CART DRAWER */
+  .overlay{
+    position:fixed;inset:0;background:rgba(10,20,15,0.45);
+    opacity:0;pointer-events:none;transition:.25s;z-index:900;
+  }
+  .overlay.open{opacity:1;pointer-events:auto;}
+  .cart-drawer{
+    position:fixed;top:0;right:0;height:100%;width:min(420px,100%);
+    background:#fff;z-index:950;box-shadow:-10px 0 40px rgba(0,0,0,0.15);
+    display:flex;flex-direction:column;
+    transform:translateX(100%);transition:.3s cubic-bezier(.4,0,.2,1);
+  }
+  .cart-drawer.open{transform:translateX(0);}
+  .drawer-head{
+    padding:20px 22px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .drawer-head h2{font-size:18px;font-weight:800;}
+  .drawer-head button{font-size:22px;color:var(--gray);}
+  .cart-items{flex:1;overflow-y:auto;padding:14px 22px;}
+  .cart-empty{padding:60px 10px;text-align:center;color:var(--gray);}
+  .cart-empty .em{font-size:44px;margin-bottom:10px;}
+  .cart-row{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .cart-row .ci-icon{width:52px;height:52px;border-radius:8px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+  .cart-row .ci-info{flex:1;min-width:0;}
+  .cart-row .ci-info h4{font-size:13.5px;font-weight:700;margin-bottom:2px;}
+  .cart-row .ci-info .u-price{font-size:12px;color:var(--gray);}
+  .cart-row .ci-actions{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+  .remove-x{font-size:12px;color:var(--red);font-weight:600;}
+  .drawer-foot{border-top:1px solid var(--line);padding:18px 22px 22px;}
+  .sum-line{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;color:var(--gray);}
+  .sum-line.total{color:var(--ink);font-weight:800;font-size:17px;margin-top:10px;padding-top:12px;border-top:1px dashed var(--line);}
+  .btn-primary{
+    display:block;width:100%;text-align:center;background:var(--green);color:#fff;
+    font-weight:700;font-size:15px;padding:14px;border-radius:11px;margin-top:14px;transition:.2s;
+  }
+  .btn-primary:hover{background:var(--green-dark);}
+  .btn-primary:disabled{background:#c9d3ce;cursor:not-allowed;}
+  .btn-secondary{
+    display:block;width:100%;text-align:center;background:var(--white);color:var(--green-dark);
+    font-weight:700;font-size:14px;padding:12px;border-radius:11px;margin-top:10px;border:1.5px solid var(--green);
+  }
+  .free-note{font-size:12px;color:var(--green-dark);background:var(--green-light);padding:8px 10px;border-radius:8px;margin-bottom:10px;}
+
+  /* VIEWS (checkout / confirmation / orders) */
+  .view{display:none;}
+  .view.active{display:block;}
+  .page-wrap{max-width:1080px;margin:0 auto;padding:44px 24px 90px;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--green-dark);margin-bottom:22px;}
+  .checkout-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:start;}
+  @media(max-width:860px){.checkout-grid{grid-template-columns:1fr;}}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;}
+  .panel h2{font-size:19px;font-weight:800;margin-bottom:18px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;}
+  .field input,.field select,.field textarea{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:9px;
+    font-size:14px;font-family:inherit;outline:none;transition:.2s;background:#fff;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green);}
+  .field .hint{font-size:11.5px;color:var(--gray);margin-top:4px;}
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:520px){.row-2{grid-template-columns:1fr;}}
+  .pay-options{display:flex;flex-direction:column;gap:10px;margin-bottom:6px;}
+  .pay-card{
+    display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:10px;
+    padding:13px 14px;cursor:pointer;transition:.2s;
+  }
+  .pay-card.selected{border-color:var(--green);background:var(--green-light);}
+  .pay-card.disabled{opacity:.5;cursor:not-allowed;}
+  .pay-card .ic{font-size:20px;}
+  .pay-card .txt{flex:1;}
+  .pay-card .txt b{display:block;font-size:14px;}
+  .pay-card .txt small{color:var(--gray);font-size:11.5px;}
+  .momo-net{display:flex;gap:8px;margin-top:10px;padding-left:32px;}
+  .momo-net button{
+    flex:1;font-size:12px;font-weight:700;padding:8px;border-radius:7px;
+    border:1px solid var(--line);color:var(--gray);
+  }
+  .momo-net button.active{background:var(--gold);border-color:var(--gold);color:#1a1f1c;}
+  .order-summary-list{max-height:220px;overflow-y:auto;margin-bottom:12px;}
+  .os-row{display:flex;justify-content:space-between;font-size:13.5px;padding:7px 0;color:var(--ink);}
+  .os-row span:last-child{font-weight:600;}
+  .err-box{background:#fdecea;color:#a63a2c;font-size:13px;padding:10px 14px;border-radius:9px;margin-bottom:14px;display:none;}
+  .err-box.show{display:block;}
+
+  /* CONFIRMATION */
+  .confirm-wrap{max-width:560px;margin:0 auto;text-align:center;padding:70px 24px 100px;}
+  .confirm-check{
+    width:78px;height:78px;border-radius:50%;background:var(--green-light);
+    display:flex;align-items:center;justify-content:center;font-size:38px;margin:0 auto 22px;color:var(--green-dark);
+  }
+  .confirm-wrap h1{font-size:26px;font-weight:800;margin-bottom:8px;}
+  .confirm-wrap p{color:var(--gray);font-size:14.5px;margin-bottom:26px;}
+  .order-id-box{
+    background:var(--white);border:1px dashed var(--green);border-radius:12px;
+    padding:16px;margin-bottom:26px;display:flex;justify-content:space-between;align-items:center;
+  }
+  .order-id-box div:first-child{text-align:left;}
+  .order-id-box small{color:var(--gray);font-size:11.5px;}
+  .order-id-box b{font-size:17px;color:var(--green-dark);}
+  .confirm-actions{display:flex;gap:12px;}
+  @media(max-width:480px){.confirm-actions{flex-direction:column;}}
+
+  /* ORDERS / TRACK */
+  .order-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:18px;}
+  .order-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;flex-wrap:wrap;gap:8px;}
+  .order-card-head h3{font-size:15.5px;font-weight:800;}
+  .order-card-head small{color:var(--gray);font-size:12px;}
+  .status-pill{background:var(--gold);color:#1a1f1c;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:999px;}
+  .steps{display:flex;align-items:center;margin:18px 0;}
+  .step{flex:1;text-align:center;position:relative;}
+  .step .dot{width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;margin:0 auto 6px;font-weight:800;}
+  .step.pending .dot{background:var(--line);color:var(--gray);}
+  .step .label{font-size:11px;color:var(--gray);font-weight:600;}
+  .step::before{content:"";position:absolute;top:11px;left:-50%;width:100%;height:2px;background:var(--green);z-index:-1;}
+  .step:first-child::before{display:none;}
+  .step.pending::before{background:var(--line);}
+  .empty-orders{text-align:center;padding:80px 20px;color:var(--gray);}
+  .empty-orders .em{font-size:48px;margin-bottom:14px;}
+
+  /* FOOTER */
+  footer{background:var(--green-dark);color:#dfeee6;padding:48px 0 24px;margin-top:20px;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr;}}
+  .foot-grid h4{color:#fff;font-size:14px;margin-bottom:14px;}
+  .foot-grid p{font-size:13.5px;line-height:1.7;opacity:.85;max-width:320px;}
+  .foot-grid li{font-size:13.5px;opacity:.85;margin-bottom:9px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:18px;font-size:12.5px;opacity:.7;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media(max-width:760px){
+    .header-inner{flex-wrap:wrap;}
+    .search-wrap{order:3;max-width:100%;flex-basis:100%;}
+    .area-pill span.full{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="proto-banner" id="protoBanner">
+  🔧 <span><b>Prototype preview</b> for client review — no real orders or payments are processed. All data is stored locally in your browser.</span>
+  <button onclick="document.getElementById('protoBanner').classList.add('hidden')">✕</button>
+</div>
+
+<header>
+  <div class="header-inner container">
+    <div class="brand">Didwa<span>.</span></div>
+    <button class="area-pill" id="areaPill" onclick="openAreaPicker()">
+      📍 <span class="full">Delivering to</span> <b id="areaLabel">Adum, Kumasi</b> ▾
+    </button>
+    <div class="search-wrap">
+      <span class="ic">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search rice, oil, Milo, soap...">
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" title="My Orders" onclick="showView('orders')">📦</button>
+      <button class="icon-btn" title="Cart" onclick="openCart()">
+        🛒<span class="badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+  <nav class="cat-nav" id="catNav"></nav>
+</header>
+
+<!-- HOME VIEW -->
+<div class="view active" id="view-home">
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Your everyday <em>essentials</em>,<br>delivered to your door.</h1>
+      <p>Rice, cooking oil, sardines, Milo, toiletries, washing powder and more — order in minutes and get it delivered same-day across Kumasi.</p>
+      <a href="#products" class="hero-cta">Start Shopping →</a>
+      <div class="trust-row">
+        <div>🚚 Same-day delivery</div>
+        <div>📱 Pay with Mobile Money</div>
+        <div>✅ Trusted brands only</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container" id="products">
+    <div id="productSections"></div>
+    <div class="no-results" id="noResults">No products match your search. Try “rice”, “oil” or “soap”.</div>
+  </main>
+</div>
+
+<!-- CHECKOUT VIEW -->
+<div class="view" id="view-checkout">
+  <div class="page-wrap">
+    <a class="back-link" href="#" onclick="showView('home');return false;">← Back to shopping</a>
+    <div class="checkout-grid">
+      <div class="panel">
+        <h2>Delivery details</h2>
+        <div class="err-box" id="checkoutErr">Please fill in all required fields marked below.</div>
+        <form id="checkoutForm">
+          <div class="row-2">
+            <div class="field">
+              <label>Full name *</label>
+              <input type="text" id="custName" placeholder="e.g. Ama Serwaa" required>
+            </div>
+            <div class="field">
+              <label>Phone number *</label>
+              <input type="tel" id="custPhone" placeholder="024 xxx xxxx" required>
+            </div>
+          </div>
+          <div class="field">
+            <label>Delivery area *</label>
+            <select id="custArea" required></select>
+          </div>
+          <div class="field">
+            <label>Address / landmark *</label>
+            <textarea id="custAddress" rows="3" placeholder="House number, street, nearest landmark..." required></textarea>
+          </div>
+          <div class="field">
+            <label>Delivery notes (optional)</label>
+            <input type="text" id="custNotes" placeholder="e.g. Call on arrival, gate is blue">
+          </div>
+
+          <h2 style="margin-top:26px;">Payment method</h2>
+          <div class="pay-options" id="payOptions">
+            <label class="pay-card selected" data-pay="momo">
+              <span class="ic">📱</span>
+              <span class="txt"><b>Mobile Money</b><small>MTN MoMo, Vodafone Cash, AirtelTigo</small></span>
+              <input type="radio" name="pay" value="momo" checked style="display:none;">
+            </label>
+            <div class="momo-net" id="momoNet">
+              <button type="button" class="active" data-net="MTN MoMo">MTN MoMo</button>
+              <button type="button" data-net="Vodafone Cash">Vodafone Cash</button>
+              <button type="button" data-net="AirtelTigo Money">AirtelTigo</button>
+            </div>
+            <label class="pay-card" data-pay="cash">
+              <span class="ic">💵</span>
+              <span class="txt"><b>Cash on Delivery</b><small>Pay when your order arrives</small></span>
+              <input type="radio" name="pay" value="cash" style="display:none;">
+            </label>
+            <label class="pay-card disabled" data-pay="card">
+              <span class="ic">💳</span>
+              <span class="txt"><b>Debit / Credit Card</b><small>Coming soon</small></span>
+              <input type="radio" name="pay" value="card" disabled style="display:none;">
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Order summary</h2>
+        <div class="order-summary-list" id="checkoutItems"></div>
+        <div class="sum-line"><span>Subtotal</span><span id="sumSubtotal">GHS 0.00</span></div>
+        <div class="sum-line"><span>Delivery fee</span><span id="sumDelivery">GHS 0.00</span></div>
+        <div class="sum-line total"><span>Total</span><span id="sumTotal">GHS 0.00</span></div>
+        <button class="btn-primary" onclick="placeOrder()">Place Order</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRMATION VIEW -->
+<div class="view" id="view-confirm">
+  <div class="confirm-wrap">
+    <div class="confirm-check">✓</div>
+    <h1>Order placed!</h1>
+    <p>Thanks — we've received your order and it's being prepared. You'll be contacted on your phone number for delivery.</p>
+    <div class="order-id-box">
+      <div>
+        <small>ORDER NUMBER</small><br>
+        <b id="confirmOrderId">DW-000000</b>
+      </div>
+      <div>
+        <small>ESTIMATED DELIVERY</small><br>
+        <b id="confirmEta">Today, 2–4 hrs</b>
+      </div>
+    </div>
+    <div class="confirm-actions">
+      <button class="btn-secondary" style="margin-top:0;flex:1;" onclick="showView('orders')">Track My Order</button>
+      <button class="btn-primary" style="margin-top:0;flex:1;" onclick="showView('home')">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDERS / TRACK VIEW -->
+<div class="view" id="view-orders">
+  <div class="page-wrap">
+    <a class="back-link" href="#" onclick="showView('home');return false;">← Back to shopping</a>
+    <h1 class="section-title">📦 My Orders</h1>
+    <p class="section-sub">Orders placed in this prototype session, stored on your device.</p>
+    <div id="ordersList"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <div class="brand" style="color:#fff;margin-bottom:12px;">Didwa<span style="color:var(--gold);">.</span></div>
+      <p>Didwa is a Kumasi-based online trading app for everyday household essentials — rice, oils, canned foods, beverages, toiletries and cleaning goods — ordered online and delivered to your door.</p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="#products" onclick="showView('home')">Shop</a></li>
+        <li><a href="#" onclick="showView('orders');return false;">Track order</a></li>
+        <li><a href="#">About Didwa</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>📞 024 000 0000</li>
+        <li>✉️ hello@didwa.app</li>
+        <li>📍 Adum, Kumasi, Ghana</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <span>© 2026 Didwa. All rights reserved.</span>
+    <span>Prototype build — for client review only.</span>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h2>Your Cart</h2>
+    <button onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="drawer-foot" id="drawerFoot">
+    <div class="sum-line"><span>Subtotal</span><span id="cartSubtotal">GHS 0.00</span></div>
+    <div class="sum-line"><span>Delivery fee</span><span id="cartDelivery">GHS 0.00</span></div>
+    <div class="sum-line total"><span>Total</span><span id="cartTotal">GHS 0.00</span></div>
+    <button class="btn-primary" id="checkoutBtn" onclick="goCheckout()" disabled>Proceed to Checkout</button>
+    <button class="btn-secondary" onclick="closeCart()">Continue Shopping</button>
+  </div>
+</aside>
+
+<script>
+/* ---------------- DATA ---------------- */
+const CATEGORIES = [
+  {id:'grains', label:'Rice & Grains', icon:'🍚'},
+  {id:'oils', label:'Oils & Fats', icon:'🛢️'},
+  {id:'canned', label:'Canned & Packaged', icon:'🥫'},
+  {id:'beverages', label:'Beverages', icon:'🥤'},
+  {id:'household', label:'Household & Cleaning', icon:'🧺'},
+  {id:'toiletries', label:'Toiletries', icon:'🧴'},
+  {id:'general', label:'General Goods', icon:'🧂'},
+];
+
+const AREAS = ['Adum, Kumasi','Asokwa, Kumasi','Bantama, Kumasi','Asafo, Kumasi','Ahodwo, Kumasi','Nhyiaeso, Kumasi','Suame, Kumasi','KNUST Campus, Kumasi','Santasi, Kumasi','Kwadaso, Kumasi'];
+
+const PRODUCTS = [
+  {id:1,cat:'grains',name:'Perfect Aroma Rice',size:'5kg bag',price:65,icon:'🍚',brand:'Perfect'},
+  {id:2,cat:'grains',name:'Tomboy Local Rice',size:'5kg bag',price:58,icon:'🍚',brand:'Tomboy'},
+  {id:3,cat:'grains',name:'Royal Aroma Jasmine Rice',size:'25kg bag',price:320,icon:'🍚',brand:'Royal Aroma'},
+  {id:4,cat:'grains',name:'Nasco Rice',size:'5kg bag',price:62,icon:'🍚',brand:'Nasco'},
+
+  {id:5,cat:'oils',name:'Frytol Vegetable Oil',size:'3L bottle',price:68,icon:'🛢️',brand:'Frytol'},
+  {id:6,cat:'oils',name:'Kings Vegetable Oil',size:'5L bottle',price:108,icon:'🛢️',brand:'Kings'},
+  {id:7,cat:'oils',name:'Blue Band Margarine',size:'500g tub',price:22,icon:'🧈',brand:'Blue Band'},
+  {id:8,cat:'oils',name:'Blue Band Margarine',size:'1kg tub',price:40,icon:'🧈',brand:'Blue Band'},
+
+  {id:9,cat:'canned',name:'Titus Sardines',size:'1 tin, 125g',price:12,icon:'🐟',brand:'Titus'},
+  {id:10,cat:'canned',name:'Geisha Mackerel in Tomato Sauce',size:'1 tin, 155g',price:14,icon:'🐟',brand:'Geisha'},
+  {id:11,cat:'canned',name:'Tasty Tom Tomato Mix',size:'400g sachet',price:8,icon:'🍅',brand:'Tasty Tom'},
+  {id:12,cat:'canned',name:'Ideal Evaporated Milk',size:'400g tin',price:15,icon:'🥛',brand:'Ideal'},
+
+  {id:13,cat:'beverages',name:'Milo Chocolate Drink',size:'400g tin',price:38,icon:'🍫',brand:'Milo'},
+  {id:14,cat:'beverages',name:'Milo Chocolate Drink Refill',size:'900g pack',price:78,icon:'🍫',brand:'Milo'},
+  {id:15,cat:'beverages',name:'Bournvita',size:'400g tin',price:34,icon:'🍫',brand:'Bournvita'},
+  {id:16,cat:'beverages',name:'Lipton Yellow Label Tea',size:'100 tea bags',price:28,icon:'🍵',brand:'Lipton'},
+
+  {id:17,cat:'household',name:'OMO Washing Powder',size:'900g pack',price:26,icon:'🧺',brand:'OMO'},
+  {id:18,cat:'household',name:'Klin Washing Powder',size:'1kg pack',price:24,icon:'🧺',brand:'Klin'},
+  {id:19,cat:'household',name:'Key Soap Bar',size:'1 bar',price:6,icon:'🧼',brand:'Key Soap'},
+  {id:20,cat:'household',name:'Sunlight Dishwashing Liquid',size:'500ml bottle',price:18,icon:'🫧',brand:'Sunlight'},
+
+  {id:21,cat:'toiletries',name:'Colgate Toothpaste',size:'150ml tube',price:14,icon:'🦷',brand:'Colgate'},
+  {id:22,cat:'toiletries',name:'Premier Toilet Tissue',size:'4-roll pack',price:16,icon:'🧻',brand:'Premier'},
+  {id:23,cat:'toiletries',name:'Dettol Antiseptic Soap',size:'1 bar',price:9,icon:'🧼',brand:'Dettol'},
+  {id:24,cat:'toiletries',name:'Lux Beauty Soap',size:'1 bar',price:7,icon:'🧼',brand:'Lux'},
+
+  {id:25,cat:'general',name:'Annapurna Iodated Salt',size:'500g pack',price:5,icon:'🧂',brand:'Annapurna'},
+  {id:26,cat:'general',name:'St. Louis Sugar',size:'1kg pack',price:14,icon:'🧂',brand:'St. Louis'},
+  {id:27,cat:'general',name:'Maggi Star Seasoning Cubes',size:'50-cube pack',price:20,icon:'🧊',brand:'Maggi'},
+  {id:28,cat:'general',name:'Golden Morn Cereal',size:'900g pack',price:32,icon:'🥣',brand:'Golden Morn'},
+];
+
+const DELIVERY_FEE = 10;
+const FREE_DELIVERY_THRESHOLD = 200;
+
+/* ---------------- STATE ---------------- */
+let cart = JSON.parse(localStorage.getItem('didwa_cart') || '{}');
+let orders = JSON.parse(localStorage.getItem('didwa_orders') || '[]');
+let selectedArea = localStorage.getItem('didwa_area') || AREAS[0];
+let activeCat = 'all';
+let searchTerm = '';
+let selectedPay = 'momo';
+let selectedNet = 'MTN MoMo';
+
+function saveCart(){ localStorage.setItem('didwa_cart', JSON.stringify(cart)); }
+function saveOrders(){ localStorage.setItem('didwa_orders', JSON.stringify(orders)); }
+function money(n){ return 'GHS ' + n.toFixed(2); }
+function findProduct(id){ return PRODUCTS.find(p=>p.id===id); }
+
+/* ---------------- CATEGORY NAV ---------------- */
+function renderCatNav(){
+  const nav = document.getElementById('catNav');
+  const chips = [{id:'all',label:'All',icon:'🛍️'}, ...CATEGORIES];
+  nav.innerHTML = chips.map(c => `<button class="cat-chip ${activeCat===c.id?'active':''}" onclick="setCategory('${c.id}')">${c.icon} ${c.label}</button>`).join('');
+}
+function setCategory(id){
+  activeCat = id;
+  showView('home');
+  renderCatNav();
+  renderProducts();
+  if(id!=='all'){
+    const el = document.getElementById('cat-'+id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  } else {
+    document.getElementById('products').scrollIntoView({behavior:'smooth'});
+  }
+}
+
+/* ---------------- PRODUCTS ---------------- */
+function renderProducts(){
+  const wrap = document.getElementById('productSections');
+  const term = searchTerm.trim().toLowerCase();
+  let cats = activeCat==='all' ? CATEGORIES : CATEGORIES.filter(c=>c.id===activeCat);
+  let anyResults = false;
+  let html = '';
+  cats.forEach(cat => {
+    let items = PRODUCTS.filter(p=>p.cat===cat.id);
+    if(term) items = items.filter(p => (p.name+' '+p.brand+' '+cat.label).toLowerCase().includes(term));
+    if(items.length===0) return;
+    anyResults = true;
+    html += `<div class="cat-block" id="cat-${cat.id}">
+      <h2 class="section-title">${cat.icon} ${cat.label}</h2>
+      <div class="section-sub">${items.length} item${items.length>1?'s':''}</div>
+      <div class="grid">${items.map(cardHtml).join('')}</div>
+    </div>`;
+  });
+  wrap.innerHTML = html;
+  document.getElementById('noResults').classList.toggle('show', !anyResults);
+}
+
+function cardHtml(p){
+  const qty = cart[p.id]||0;
+  return `<div class="card">
+    <div class="card-icon">${p.icon}</div>
+    <div class="brand-tag">${p.brand}</div>
+    <h3>${p.name}</h3>
+    <div class="size">${p.size}</div>
+    <div class="price-row">
+      <div class="price">${money(p.price)}</div>
+      ${qty>0
+        ? `<div class="qty-stepper" id="stepper-${p.id}">
+             <button onclick="changeQty(${p.id},-1)">−</button>
+             <span>${qty}</span>
+             <button onclick="changeQty(${p.id},1)">+</button>
+           </div>`
+        : `<button class="add-btn" onclick="changeQty(${p.id},1)">Add +</button>`
+      }
+    </div>
+  </div>`;
+}
+
+function changeQty(id, delta){
+  cart[id] = (cart[id]||0) + delta;
+  if(cart[id]<=0) delete cart[id];
+  saveCart();
+  renderProducts();
+  renderCart();
+  renderCheckoutSummary();
+}
+
+/* ---------------- CART ---------------- */
+function cartTotals(){
+  let subtotal = 0, count = 0;
+  Object.entries(cart).forEach(([id,qty])=>{
+    const p = findProduct(Number(id));
+    if(p){ subtotal += p.price*qty; count += qty; }
+  });
+  const delivery = subtotal===0 ? 0 : (subtotal>=FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE);
+  return {subtotal, delivery, total: subtotal+delivery, count};
+}
+
+function updateCartBadge(){
+  const {count} = cartTotals();
+  document.getElementById('cartBadge').textContent = count;
+}
+
+function renderCart(){
+  const wrap = document.getElementById('cartItems');
+  const entries = Object.entries(cart);
+  updateCartBadge();
+  const {subtotal, delivery, total} = cartTotals();
+
+  if(entries.length===0){
+    wrap.innerHTML = `<div class="cart-empty"><div class="em">🛒</div>Your cart is empty.<br>Add some essentials to get started.</div>`;
+  } else {
+    wrap.innerHTML = entries.map(([id,qty])=>{
+      const p = findProduct(Number(id));
+      if(!p) return '';
+      return `<div class="cart-row">
+        <div class="ci-icon">${p.icon}</div>
+        <div class="ci-info">
+          <h4>${p.name}</h4>
+          <div class="u-price">${p.size} · ${money(p.price)} each</div>
+          <button class="remove-x" onclick="removeItem(${p.id})">Remove</button>
+        </div>
+        <div class="ci-actions">
+          <div class="qty-stepper">
+            <button onclick="changeQty(${p.id},-1)">−</button>
+            <span>${qty}</span>
+            <button onclick="changeQty(${p.id},1)">+</button>
+          </div>
+          <b>${money(p.price*qty)}</b>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  document.getElementById('cartSubtotal').textContent = money(subtotal);
+  document.getElementById('cartDelivery').textContent = delivery===0 && subtotal>0 ? 'FREE' : money(delivery);
+  document.getElementById('cartTotal').textContent = money(total);
+  document.getElementById('checkoutBtn').disabled = entries.length===0;
+}
+
+function removeItem(id){
+  delete cart[id];
+  saveCart();
+  renderProducts();
+  renderCart();
+  renderCheckoutSummary();
+}
+
+function openCart(){
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+function closeCart(){
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+
+/* ---------------- AREA PICKER ---------------- */
+function openAreaPicker(){
+  const choice = prompt('Select delivery area:\n' + AREAS.map((a,i)=>`${i+1}. ${a}`).join('\n') + '\n\nEnter a number:');
+  const idx = parseInt(choice,10)-1;
+  if(idx>=0 && idx<AREAS.length){
+    selectedArea = AREAS[idx];
+    localStorage.setItem('didwa_area', selectedArea);
+    document.getElementById('areaLabel').textContent = selectedArea;
+    const sel = document.getElementById('custArea');
+    if(sel) sel.value = selectedArea;
+  }
+}
+
+/* ---------------- VIEWS ---------------- */
+function showView(name){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-'+name).classList.add('active');
+  closeCart();
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  if(name==='orders') renderOrders();
+}
+
+function goCheckout(){
+  if(Object.keys(cart).length===0) return;
+  showView('checkout');
+  renderCheckoutSummary();
+}
+
+function renderCheckoutSummary(){
+  const wrap = document.getElementById('checkoutItems');
+  const entries = Object.entries(cart);
+  const {subtotal, delivery, total} = cartTotals();
+  wrap.innerHTML = entries.map(([id,qty])=>{
+    const p = findProduct(Number(id));
+    if(!p) return '';
+    return `<div class="os-row"><span>${p.icon} ${p.name} × ${qty}</span><span>${money(p.price*qty)}</span></div>`;
+  }).join('');
+  document.getElementById('sumSubtotal').textContent = money(subtotal);
+  document.getElementById('sumDelivery').textContent = delivery===0 && subtotal>0 ? 'FREE' : money(delivery);
+  document.getElementById('sumTotal').textContent = money(total);
+}
+
+/* ---------------- CHECKOUT FORM ---------------- */
+function initCheckoutForm(){
+  const areaSel = document.getElementById('custArea');
+  areaSel.innerHTML = AREAS.map(a=>`<option value="${a}" ${a===selectedArea?'selected':''}>${a}</option>`).join('');
+
+  document.querySelectorAll('.pay-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      if(card.classList.contains('disabled')) return;
+      document.querySelectorAll('.pay-card').forEach(c=>c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedPay = card.dataset.pay;
+      card.querySelector('input').checked = true;
+      document.getElementById('momoNet').style.display = selectedPay==='momo' ? 'flex' : 'none';
+    });
+  });
+
+  document.querySelectorAll('#momoNet button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('#momoNet button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedNet = btn.dataset.net;
+    });
+  });
+}
+
+function placeOrder(){
+  const name = document.getElementById('custName').value.trim();
+  const phone = document.getElementById('custPhone').value.trim();
+  const area = document.getElementById('custArea').value;
+  const address = document.getElementById('custAddress').value.trim();
+  const notes = document.getElementById('custNotes').value.trim();
+  const errBox = document.getElementById('checkoutErr');
+
+  if(!name || !phone || !area || !address || Object.keys(cart).length===0){
+    errBox.classList.add('show');
+    window.scrollTo({top:0, behavior:'smooth'});
+    return;
+  }
+  errBox.classList.remove('show');
+
+  const {subtotal, delivery, total} = cartTotals();
+  const items = Object.entries(cart).map(([id,qty])=>{
+    const p = findProduct(Number(id));
+    return {id:p.id, name:p.name, icon:p.icon, size:p.size, price:p.price, qty};
+  });
+
+  const order = {
+    id: 'DW-' + Math.floor(100000 + Math.random()*900000),
+    date: new Date().toISOString(),
+    name, phone, area, address, notes,
+    payment: selectedPay==='momo' ? `Mobile Money (${selectedNet})` : selectedPay==='cash' ? 'Cash on Delivery' : 'Card',
+    items, subtotal, delivery, total,
+    status: 'Order Placed'
+  };
+  orders.unshift(order);
+  saveOrders();
+
+  cart = {};
+  saveCart();
+  renderProducts();
+  renderCart();
+
+  document.getElementById('confirmOrderId').textContent = order.id;
+  showView('confirm');
+}
+
+/* ---------------- ORDERS / TRACK ---------------- */
+function renderOrders(){
+  const wrap = document.getElementById('ordersList');
+  if(orders.length===0){
+    wrap.innerHTML = `<div class="empty-orders"><div class="em">📦</div>No orders yet.<br><br><button class="btn-primary" style="width:auto;padding:12px 26px;" onclick="showView('home')">Start Shopping</button></div>`;
+    return;
+  }
+  const stages = ['Order Placed','Processing','Out for Delivery','Delivered'];
+  wrap.innerHTML = orders.map(o=>{
+    const stageIdx = stages.indexOf(o.status);
+    const d = new Date(o.date);
+    return `<div class="order-card">
+      <div class="order-card-head">
+        <div>
+          <h3>${o.id}</h3>
+          <small>${d.toLocaleDateString()} · ${o.items.reduce((a,i)=>a+i.qty,0)} items · ${o.payment}</small>
+        </div>
+        <span class="status-pill">${o.status}</span>
+      </div>
+      <div class="steps">
+        ${stages.map((s,i)=>`<div class="step ${i<=stageIdx?'':'pending'}"><div class="dot">${i<=stageIdx?'✓':i+1}</div><div class="label">${s}</div></div>`).join('')}
+      </div>
+      <div class="order-summary-list">
+        ${o.items.map(i=>`<div class="os-row"><span>${i.icon} ${i.name} × ${i.qty}</span><span>${money(i.price*i.qty)}</span></div>`).join('')}
+      </div>
+      <div class="sum-line total"><span>Total</span><span>${money(o.total)}</span></div>
+      <div class="field" style="margin-top:12px;margin-bottom:0;">
+        <label>Delivering to</label>
+        <div class="hint" style="font-size:12.5px;">${o.name} · ${o.phone}<br>${o.address}, ${o.area}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ---------------- SEARCH ---------------- */
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  searchTerm = e.target.value;
+  if(searchTerm && activeCat!=='all'){ activeCat='all'; renderCatNav(); }
+  renderProducts();
+});
+
+/* ---------------- INIT ---------------- */
+document.getElementById('areaLabel').textContent = selectedArea;
+renderCatNav();
+renderProducts();
+renderCart();
+initCheckoutForm();
+</script>
+</body>
+</html>
